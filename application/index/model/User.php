@@ -12,5 +12,8 @@ use think\Model;
 
 class User extends Model
 {
-
+    //定义关联方法
+    public function books(){
+        return $this->hasMany('Book');
+    }
 }
