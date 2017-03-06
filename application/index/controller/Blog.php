@@ -4,28 +4,36 @@ namespace app\index\controller;
 //use app\Index\controller\Base;
 use think\Controller;
 use think\Db;
+use app\index\model\Blog as Blogs;
+use think\Request;
 
 class Blog extends Controller
 {
     public function index()
     {
-        $data = Db::name('data')->find('2');
-
-        $this->assign('result',$data);
-        return $this->fetch();
+        $list = Blogs::all();
+        return json($list);
     }
 
-    public function get($id){
-        return '查看id='.$id.'的内容';
+    public function save(Request $request){
+        $data = $request->param();
+        $result = Blogs::create($data);
+        return json($result);
     }
 
-    public function read($name){
+    public function read($id){
 
-        return '查看name='.$name.'的内容';
+        $data = Blogs::get($id);
+        return json($data);
     }
 
-    public function archive($year, $month)
-    {
-        return '查看' . $year . '/' . $month . '的归档内容';
+    public function update(Request $request,$id){
+        $data = $request->param();
+        $result = Blogs::update($data,['id'=>$id]);
+        return json($result);
+    }
+    public function delete($id){
+        $result = Blogs::destroy($id);
+        return json($result);
     }
 }

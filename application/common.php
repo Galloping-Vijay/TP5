@@ -8,5 +8,8 @@
 // +----------------------------------------------------------------------
 // | Author: 流年 <liu21st@gmail.com>
 // +----------------------------------------------------------------------
-
+use think\Route;
 // 应用公共文件
+Route::rule(':version/user/:id','api/:version.User/read');
+
+Route::resource('blogs','index/blog');

@@ -10,11 +10,14 @@ namespace app\index\controller;
 use app\index\model\Users as UsersModel;
 use app\index\model\Book;
 use app\index\model\Profile;
+use app\index\validate\User;
 use think\Controller;
 use think\Validate;
 
 class Users extends Controller
 {
+
+
     //关联新增数据
     public function add(){
         $users = new UsersModel();
@@ -35,12 +38,10 @@ class Users extends Controller
         }
     }
 
-    public function read($id)
+    public function read($id = '')
     {
-        $user = UsersModel::get($id);echo $user->name . '<br/>';
-        echo $user->nickname . '<br/>';
-        echo $user->profile->truename . '<br/>';
-        echo $user->profile->email . '<br/>';
+        $users = UsersModel::get($id);
+        echo $users->toJson();
     }
 
     public function updata($id){

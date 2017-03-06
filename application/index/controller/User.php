@@ -13,7 +13,15 @@ use think\Validate;
 
 class User extends Controller
 {
-// 创建用户数据页面
+
+    public function index(){
+        //获取用户数据列表并输出
+        $list = UserModel::all();
+        $this->assign('list',$list);
+        $this->assign('count',count($list));
+        return $this->fetch();
+    }
+    // 创建用户数据页面
     public function create()
     {
         return view();

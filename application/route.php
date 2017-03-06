@@ -16,7 +16,7 @@ return [
     '[hello]'     => [
         ':id'   => ['index/hello', ['method' => 'get'], ['id' => '\d+']],
         ':name' => ['index/hello', ['method' => 'post']],
-        // 定义路由的请求类型和后缀
+        // 锟斤拷锟斤拷路锟缴碉拷锟斤拷锟斤拷锟斤拷锟酵和猴拷缀
         //'hello/[
         //:name]' => ['index/hello', ['method' => 'get', 'ext' => 'html']],
     ],
@@ -26,12 +26,14 @@ return [
     'user/add' => 'index/user/add',
     'user/add_list' => 'index/user/addList',
     'user/update/:id' => 'index/user/update',
-    // 添加路由规则 路由到 index控制器的hello操作方法
-    //'hello/[:name]' => 'index/index/hello',
 
-    // 设置pathinfo分隔符
+    //'hello/[:name]' => 'index/index/hello',
+    //':version/user/:id'=>'api/:version.User/read',
+    //鏀寔RESTFUL
+    //'blogs'=>'index/blog',
+
     //'pathinfo_depr' => '-',
-    //自动加后缀
+    //锟皆讹拷锟接猴拷缀
     //'url_html_suffix' => 'html',
 
     'blog/:year/:month' => ['blog/archive', ['method' => 'get'], ['year' => '\d{4}', 'month' => '\d{2}']],
@@ -39,3 +41,5 @@ return [
     'blog/:name' => ['blog/read', ['method' => 'get'], ['name' => '\w+']],
 
 ];
+
+

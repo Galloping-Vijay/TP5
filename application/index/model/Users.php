@@ -15,8 +15,12 @@ class Users extends Model
     //开启自动写入时间戳
     protected $autoWriteTimestamp = true;
 
-    //定义自动完成的属性
-    protected $insert=['status'=>1];
+    // status修改器
+    /*protected function getUsersStatusAttr($value)
+    {
+        $status = ['-1' => '删除', '0' => '禁用', '1' => '正常', '2' => '待审核'];
+        return $status[$value];
+    }*/
 
     //定义关联方法
     public function profile(){
